@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: sistemainternoadra
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/adra_database
+    username: adra_db_user
+    password: adra_db_pass
+
+  jpa:
+    database: MYSQL
+    show-sql: true
+
+# Cores
+cor:
+  principal: "#ffffff"
+  tema1: "#007b5e"
+  destaque1: "#f47722"
+  escura1: "#54585a"
+  escura2: "#000000"
