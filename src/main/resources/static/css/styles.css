@@ -27,9 +27,14 @@ body{
     top: 0;
     left: 0;
     height: 100%;
-    width: 240px;
+    width: 70px;
     background: var(--cor-tema1);
     padding: 6px 14px;
+    transition: all 0.5s ease;
+}
+
+.sidebar.active {
+    width: 220px;
 }
 
 .sidebar .logo_content .logo {
@@ -38,6 +43,13 @@ body{
     height: 50px;
     width: 100%;
     align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+.sidebar.active .logo_content .logo {
+    opacity: 1;
 }
 
 .logo_content .logo i{
@@ -53,7 +65,7 @@ body{
 .sidebar #menu_btn{
     position: absolute;
     color: var(--cor-principal);
-    left: 90%;
+    left: 50%;
     top: 6px;
     font-size: 25px;
     height: 50px;
@@ -61,6 +73,11 @@ body{
     text-align: center;
     line-height: 50px;
     transform: translateX(-50%);
+    transition: all 0.5s ease;
+}
+
+.sidebar.active #menu_btn{
+    left: 90%;
 }
 
 .sidebar ul{
@@ -71,18 +88,60 @@ body{
     position: relative;
     height: 70px;
     width: 100%;
-    margin: 0 5px;
+    margin: 0 0px;
     list-style: none;
+    transition: all 0.5s ease;
+}
+
+.sidebar.active ul li{
+    margin: 0 5px;
+}
+
+.sidebar ul li .tooltip{
+    color: var(--cor-destaque1);
+    font-weight: 550;
+    position: absolute;
+    left: 70px;
+    top: 0%;
+    transform: translateY(-50% , -50%);
+    border-radius: 6px;
+    height: 35px;
+    width: 122px;
+    background: #fff;
+    line-height: 35px;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: 0s;
+    opacity: 0;
+    pointer-events: none;
+    display: block;
+    transition: all 0.5s ease;
+}
+
+.sidebar.active ul li .tooltip{
+    display: none;
+}
+
+.sidebar ul li:hover .tooltip{
+    transition: all 0.5s ease;
+    opacity: 1;
+    top: 35%
 }
 
 .sidebar ul li a{
     color: var(--cor-principal);
     display: flex;
-    align-items: center;
+    align-items: left;
     text-decoration: none;
     font-size: 15px;
     font-weight: 700;
     border-radius: 12px
+    white-space: nowrap;
+    transition: all 0.5s ease;
+}
+
+.sidebar.active ul li a{
+    align-items: center;
 }
 
 .sidebar ul li a:hover{
@@ -96,7 +155,24 @@ body{
     border-radius: 12px;
     line-height: 50px;
     font-size: 30px;
+    text-align: left;
+    margin: 0 5px;
+    transition: all 0.5s ease;
+}
+
+.sidebar.active ul li a i{
     text-align: center;
+}
+
+.sidebar .links_name{
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+.sidebar.active .links_name{
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .sidebar .profile_content{
@@ -118,6 +194,15 @@ body{
 .sidebar .profile_content .profile .profile_details{
     display: flex;
     align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    transition: all 0.5s ease;
+}
+
+.sidebar.active .profile_content .profile .profile_details{
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .profile .profile_details img{
@@ -141,11 +226,37 @@ body{
 
 .profile #log_out{
     position: absolute;
-    left: 88%;
+    left: 50%;
     bottom: 5px;
     transform: translateX(-50%);
     min-width: 50px;
     line-height: 50px;
     font-size: 25px;
     border-radius: 12px;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+.sidebar.active .profile #log_out{
+    left: 88%;
+}
+
+.home_content{
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 70px);
+    left: 70px;
+    transition: all 0.5 ease;
+}
+
+.home_content .text{
+    font-size: 25px;
+    font-weight: 500px;
+    color: var(--cor-escura1);
+    margin: 12px;
+}
+
+.sidebar.active ~ .home_content{
+    width: calc(100% - 220px);
+    left: 220px
 }
