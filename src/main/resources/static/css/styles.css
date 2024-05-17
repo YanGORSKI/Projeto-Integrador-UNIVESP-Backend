@@ -125,7 +125,7 @@ body{
 .sidebar ul li:hover .tooltip{
     transition: all 0.5s ease;
     opacity: 1;
-    top: 35%
+    top: 10%
 }
 
 .sidebar ul li a{
@@ -135,9 +135,8 @@ body{
     text-decoration: none;
     font-size: 15px;
     font-weight: 700;
-    border-radius: 12px
+    border-radius: 12px;
     white-space: nowrap;
-    transition: all 0.5s ease;
 }
 
 .sidebar.active ul li a{
