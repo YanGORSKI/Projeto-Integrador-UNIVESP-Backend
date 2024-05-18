@@ -37,32 +37,55 @@ body{
     width: 220px;
 }
 
+.sidebar .logo_content{
+    align-items: center;
+}
+
 .sidebar .logo_content .logo {
     color: var(--cor-principal);
     display: flex;
     height: 50px;
     width: 100%;
     align-items: center;
-    opacity: 0;
-    pointer-events: none;
+    opacity: 1;
+    pointer-events: auto;
     transition: all 0.5s ease;
 }
 
 .sidebar.active .logo_content .logo {
     opacity: 1;
+    pointer-events: none;
 }
 
 .logo_content .logo i{
     font-size: 28px;
     margin-right: 20px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar #adra_globe{
+    font-size: 28px;
+    text-align: center;
+    margin-left: 6px;
+}
+
+.sidebar.active .logo_content .logo i{
+    pointer-events: none;
 }
 
 .logo_content .logo .logo_name{
     font-size: 20px;
     font-weight: 700;
+    opacity: 0;
+    transition: all 0.5s ease;
 }
 
-.sidebar #menu_btn{
+.sidebar.active .logo_content .logo .logo_name{
+    opacity: 1;
+}
+
+.sidebar #close_btn{
     position: absolute;
     color: var(--cor-principal);
     left: 50%;
@@ -72,12 +95,16 @@ body{
     width: 50px;
     text-align: center;
     line-height: 50px;
+    opacity: 0;
     transform: translateX(-50%);
     transition: all 0.5s ease;
+    pointer-events: none;
 }
 
-.sidebar.active #menu_btn{
+.sidebar.active #close_btn{
+    opacity: 1;
     left: 90%;
+    pointer-events: auto;
 }
 
 .sidebar ul{
@@ -225,12 +252,12 @@ body{
 
 .profile #log_out{
     position: absolute;
-    left: 50%;
+    left: 45%;
     bottom: 5px;
     transform: translateX(-50%);
     min-width: 50px;
     line-height: 50px;
-    font-size: 25px;
+    font-size: 35px;
     border-radius: 12px;
     text-align: center;
     transition: all 0.5s ease;
@@ -238,6 +265,7 @@ body{
 
 .sidebar.active .profile #log_out{
     left: 88%;
+    font-size: 25px;
 }
 
 .home_content{

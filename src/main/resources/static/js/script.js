@@ -1,8 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
-    let btn = document.querySelector("#menu_btn");
+    let close_btn = document.querySelector("#close_btn");
+    let adra_globe = document.querySelector("#adra_globe");
     let sidebar = document.querySelector(".sidebar");
 
-    btn.onclick = function() {
+    close_btn.onclick = function() {
         sidebar.classList.toggle("active");
+    };
+
+    adra_globe.onclick = function() {
+            sidebar.classList.toggle("active");
     };
 });
