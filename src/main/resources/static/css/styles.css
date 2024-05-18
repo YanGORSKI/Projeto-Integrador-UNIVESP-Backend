@@ -270,20 +270,43 @@ body{
 
 .home_content{
     position: absolute;
+    display: flex;
     height: 100%;
     width: calc(100% - 70px);
     left: 70px;
-    transition: all 0.5 ease;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+.home_logo {
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+.home_logo img {
+    width: 350px; /* Ajuste o tamanho conforme necessário */
+}
+
+.home_logo h2 {
+    margin-top: 20px;
+    font-size: 50px; /* Ajuste o tamanho da fonte conforme necessário */
+    color: var(--cor-destaque1); /* Ajuste a cor conforme necessário */
 }
 
 .home_content .text{
     font-size: 25px;
     font-weight: 500px;
-    color: var(--cor-escura1);
     margin: 12px;
+    transition: all 0.5s ease;
 }
 
 .sidebar.active ~ .home_content{
     width: calc(100% - 220px);
     left: 220px
 }
+
+
+
+
+
