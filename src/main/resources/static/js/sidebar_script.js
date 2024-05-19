@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function() {
     adra_globe.onclick = function() {
             sidebar.classList.toggle("active");
     };
+
+    highlightActiveCategory();
 });
 
 // Function to highlight the active category
@@ -23,8 +25,11 @@ function highlightActiveCategory() {
         // Remove the class 'active' from all links
         link.parentElement.classList.remove("active");
 
-        // Check if the current path includes the link path (for nested paths)
-        if (currentPath.includes(linkPath)) {
+        let currentPathEnd = currentPath.split("/").pop();
+
+
+        // Check if the current path matches the link path or if it is a nested path
+        if (currentPathEnd === linkPath || currentPath.includes(linkPath.replace('.html', ''))) {
             link.parentElement.classList.add("active");
         }
     });

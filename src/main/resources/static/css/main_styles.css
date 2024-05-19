@@ -1,0 +1,130 @@
+/* CORES */
+:root {
+    --cor-principal: #ffffff;
+    --cor-tema1: #007b5e;
+    --cor-tema-claro:#0f9979;
+    --cor-destaque1: #f47722;
+    --cor-escura1: #54585a;
+    --cor-escura2: #000000;
+}
+
+/* MAIN */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    position: relative;
+    min-height: 100vh;
+    min-width: 560px;
+    width: 100%;
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+/* GENERAL PAGE CONTENT */
+
+.content{
+    position: absolute;
+    display: flex;
+    height: 100%;
+    width: calc(100% - 70px);
+    left: 70px;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+.home_logo {
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+.home_logo img {
+    width: 350px; /* Ajuste o tamanho conforme necessário */
+}
+
+.home_logo h2 {
+    margin-top: 20px;
+    font-size: 50px; /* Ajuste o tamanho da fonte conforme necessário */
+    color: var(--cor-destaque1); /* Ajuste a cor conforme necessário */
+}
+
+.content .text{
+    font-size: 25px;
+    font-weight: 500px;
+    margin: 12px;
+    transition: all 0.5s ease;
+}
+
+/* SUBCATEGORIES PAGE CONTENT */
+
+.subcategory_buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.subcategory_buttons table {
+    width: 50%;
+    border-collapse: collapse;
+}
+
+.subcategory_buttons td {
+    padding: 20px;
+    text-align: center;
+}
+
+.subcategory_buttons .btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    background-color: #007b5e;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.subcategory_buttons .btn i {
+    font-size: 36px; /* Tamanho do ícone */
+    margin-bottom: 10px; /* Espaço entre o ícone e o texto */
+}
+
+.subcategory_buttons .btn span {
+    margin-top: 5px;
+}
+
+.subcategory_buttons .btn:hover {
+    background-color: #005f46;
+}
