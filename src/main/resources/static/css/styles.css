@@ -1,4 +1,4 @@
-/* Definindo variáveis de cores */
+/* CORES */
 :root {
     --cor-principal: #ffffff;
     --cor-tema1: #007b5e;
@@ -7,6 +7,8 @@
     --cor-escura1: #54585a;
     --cor-escura2: #000000;
 }
+
+/* MAIN */
 
 * {
     margin: 0;
@@ -22,6 +24,7 @@ body{
     overflow: hidden;
 }
 
+/* -- SIDEBAR -- */
 .sidebar{
     position: fixed;
     top: 0;
@@ -35,6 +38,16 @@ body{
 
 .sidebar.active {
     width: 220px;
+}
+
+.nav_list li.active a {
+    background: var(--cor-destaque1);
+    color: var(--cor-escura2);
+}
+
+.nav_list li.active a:hover {
+    background: var(--cor-destaque1);
+    color: var(--cor-escura2);
 }
 
 .sidebar .logo_content{
@@ -268,7 +281,9 @@ body{
     font-size: 25px;
 }
 
-.home_content{
+/* GENERAL PAGE CONTENT */
+
+.content{
     position: absolute;
     display: flex;
     height: 100%;
@@ -294,19 +309,63 @@ body{
     color: var(--cor-destaque1); /* Ajuste a cor conforme necessário */
 }
 
-.home_content .text{
+.content .text{
     font-size: 25px;
     font-weight: 500px;
     margin: 12px;
     transition: all 0.5s ease;
 }
 
-.sidebar.active ~ .home_content{
+.sidebar.active ~ .content{
     width: calc(100% - 220px);
     left: 220px
 }
 
+/* SUBCATEGORIES PAGE CONTENT */
 
+.subcategory_buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
 
+.subcategory_buttons table {
+    width: 50%;
+    border-collapse: collapse;
+}
 
+.subcategory_buttons td {
+    padding: 20px;
+    text-align: center;
+}
 
+.subcategory_buttons .btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    background-color: #007b5e;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.subcategory_buttons .btn i {
+    font-size: 36px; /* Tamanho do ícone */
+    margin-bottom: 10px; /* Espaço entre o ícone e o texto */
+}
+
+.subcategory_buttons .btn span {
+    margin-top: 5px;
+}
+
+.subcategory_buttons .btn:hover {
+    background-color: #005f46;
+}
