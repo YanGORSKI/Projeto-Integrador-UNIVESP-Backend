@@ -1,0 +1,120 @@
+/* CORES */
+:root {
+    --cor-principal: #ffffff;
+    --cor-tema1: #007b5e;
+    --cor-tema-claro: #0f9979;
+    --cor-destaque1: #f47722;
+    --cor-escura1: #54585a;
+    --cor-escura2: #000000;
+}
+
+/* MAIN */
+.form-crianca {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 800;
+}
+
+.content table {
+    width: 100%;
+    margin: 0px 5px 5px 5px;
+}
+
+.content table tbody {
+    font-weight: 550;
+}
+
+.content td {
+    width: 25%;
+    height: 10px;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: left;
+}
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.submit-button {
+    background-color: var(--cor-tema1);
+    color: white;
+    width: 100%;
+    height: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-button:hover {
+    background-color: var(--cor-tema-claro);
+}
+
+/* Layout adjustments */
+.content{
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: normal;
+    padding: 120px 20px;
+}
+
+.input-with-button, .input-with-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.input-with-button button, .input-with-buttons button {
+    margin-left: 10px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--cor-principal);
+    padding: 20px;
+    border: 1px solid var(--cor-tema1);
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+.popup form {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup .form-group {
+    margin-bottom: 10px;
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}

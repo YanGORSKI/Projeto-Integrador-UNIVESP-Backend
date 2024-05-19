@@ -23,6 +23,7 @@ public class PessCriancasController {
         List<Crianca> criancas = criancaRepository.findAll();
         List<CriancaDTO> criancaDTOs = criancas.stream().map(crianca -> {
             CriancaDTO dto = new CriancaDTO();
+            dto.setId(crianca.getId());
             dto.setNome(crianca.getNome());
             dto.setNascimento(crianca.getNascimento());
             dto.setSexo(crianca.getFkSexo() == 1 ? "M" : "F"); // Ajuste de acordo com sua tabela de sexo

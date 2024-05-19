@@ -100,4 +100,7 @@ public class Crianca {
     public String getArrDescLazer() {
         return arrDescLazer;
     }
+
+    public void setId(Long id) {
+    }
 }

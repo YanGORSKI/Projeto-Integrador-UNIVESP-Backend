@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Criança</title>
+    <link rel="stylesheet" href="../../static/css/main_styles.css">
+    <link rel="stylesheet" href="../../static/css/sidebar_styles.css">
+    <link rel="stylesheet" href="../../static/css/topbar_styles.css">
+    <link rel="stylesheet" href="../../static/css/form_styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+<div class="sidebar">
+    <div class="logo_content">
+        <div class="logo">
+            <i class='bx bx-globe' id="adra_globe"></i>
+            <div class="logo_name">ADRA</div>
+        </div>
+        <i class='bx bx-x' id="close_btn"></i>
+    </div>
+    <ul class="nav_list">
+        <li>
+            <a href="admin.html">
+                <i class='bx bxs-institution'></i>
+                <span class="links_name">ONG</span>
+            </a>
+            <span class="tooltip">ONG</span>
+        </li>
+        <li>
+            <a href="calendar.html">
+                <i class='bx bx-calendar'></i>
+                <span class="links_name">Calendário</span>
+            </a>
+            <span class="tooltip">Calendário</span>
+        </li>
+        <li>
+            <a href="/pessoas/index">
+                <i class='bx bxs-user'></i>
+                <span class="links_name">Pessoas</span>
+            </a>
+            <span class="tooltip">Pessoas</span>
+        </li>
+        <li>
+            <a href="financeiro.html">
+                <i class='bx bx-dollar-circle'></i>
+                <span class="links_name">Financeiro</span>
+            </a>
+            <span class="tooltip">Financeiro</span>
+        </li>
+        <li>
+            <a href="projetos.html">
+                <i class='bx bx-spreadsheet'></i>
+                <span class="links_name">Projetos</span>
+            </a>
+            <span class="tooltip">Projetos</span>
+        </li>
+        <li>
+            <a href="config.html">
+                <i class='bx bx-cog'></i>
+                <span class="links_name">Configurações</span>
+            </a>
+            <span class="tooltip">Configurações</span>
+        </li>
+    </ul>
+    <div class="profile_content">
+        <div class="profile">
+            <div class="profile_details">
+                <img src="../../static/images/profilepicture.jpg" alt="Profile Picture"/>
+                <div class="usuario_cargo">
+                    <div class="usuario">Nome Usuário</div>
+                    <div class="cargo">Cargo Usuário</div>
+                </div>
+            </div>
+            <i class='bx bx-log-out' id="log_out"></i>
+        </div>
+    </div>
+</div>
+<div class="topbar">
+    <div class="topbar_title">Adicionar Criança</div>
+    <div class="topbar_tabs">
+        <table>
+            <tr>
+                <td class="tab"></td>
+                <td class="tab"></td>
+                <td class="tab"></td>
+                <td class="tab"></td>
+                <td class="tab"></td>
+                <td class="tab"></td>
+                <td class="tab"></td>
+                <td class="tab"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="content">
+    <form id="form-crianca" action="/pessoas/criancas/salvar" method="POST">
+        <table>
+            <tr>
+                <td colspan="2"><label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" required>
+                </td>
+                <td>
+                    <label for="nascimento">Data de Nascimento</label>
+                    <input type="date" id="nascimento" name="nascimento" required>
+                </td>
+                <td>
+                    <label for="fk_sexo">Sexo</label>
+                    <select id="fk_sexo" name="fk_sexo">
+                        <!-- Opções de sexo -->
+                    </select>
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label for="fk_endereco">Endereço</label>
+                    <div class="input-with-button">
+                        <select id="fk_endereco" name="fk_endereco">
+                            <!-- Opções de endereço -->
+                        </select>
+                        <button type="button" id="add-endereco-btn">+</button>
+                    </div>
+                </td>
+                <td>
+                    <label for="fk_escolaridade">Escolaridade</label>
+                    <div class="input-with-button">
+                        <select id="fk_escolaridade" name="fk_escolaridade">
+                            <!-- Opções de escolaridade -->
+                        </select>
+                        <button type="button" id="add-escolaridade-btn">+</button>
+                    </div>
+                </td>
+                <td>
+                    <label for="fk_etnia">Etnia</label>
+                    <select id="fk_etnia" name="fk_etnia">
+                        <!-- Opções de etnia -->
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label for="fk_responsavel">Responsável</label>
+                    <div class="input-with-buttons">
+                        <input type="text" id="fk_responsavel" name="fk_responsavel">
+                        <button type="button" id="search-responsavel-btn">🔍</button>
+                        <button type="button" id="add-responsavel-btn">+</button>
+                    </div>
+                </td>
+                <td>
+                    <label for="has_lazer">Tem lazer?</label>
+                    <input type="checkbox" id="has_lazer" name="has_lazer">
+                </td>
+                <td>
+                    <label for="arr_desc_lazer">Descrição do lazer</label>
+                    <textarea id="arr_desc_lazer" name="arr_desc_lazer"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label for="fk_pai">Pai</label>
+                    <div class="input-with-buttons">
+                        <input type="text" id="fk_pai" name="fk_pai">
+                        <button type="button" id="search-pai-btn">🔍</button>
+                        <button type="button" id="add-pai-btn">+</button>
+                    </div>
+                </td>
+                <td colspan="2">
+                    <label for="fk_mae">Mãe</label>
+                    <div class="input-with-buttons">
+                        <input type="text" id="fk_mae" name="fk_mae">
+                        <button type="button" id="search-mae-btn">🔍</button>
+                        <button type="button" id="add-mae-btn">+</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="2"><button type="submit" class="submit-button">Salvar</button></td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<!-- Popups para adicionar endereço e escolaridade -->
+<div id="endereco-popup" class="popup">
+    <button type="button" class="close-popup" onclick="closePopup('endereco-popup')">X</button>
+    <form id="form-endereco">
+        <div class="form-group">
+            <label for="endereco">Endereço</label>
+            <input type="text" id="endereco" name="endereco">
+        </div>
+        <div class="form-group">
+            <label for="numero">Número</label>
+            <input type="text" id="numero" name="numero">
+        </div>
+        <div class="form-group">
+            <label for="bairro">Bairro</label>
+            <input type="text" id="bairro" name="bairro">
+        </div>
+        <div class="form-group">
+            <label for="cidade">Cidade</label>
+            <input type="text" id="cidade" name="cidade">
+        </div>
+        <div class="form-group">
+            <label for="estado">Estado</label>
+            <input type="text" id="estado" name="estado">
+        </div>
+        <div class="form-group">
+            <label for="cep">CEP</label>
+            <div class="input-with-button">
+                <input type="text" id="cep" name="cep">
+                <button type="button" id="search-cep-btn">🔍</button>
+            </div>
+        </div>
+        <button type="button" id="add-endereco-save-btn">Adicionar</button>
+    </form>
+</div>
+
+<div id="escolaridade-popup" class="popup">
+    <button type="button" class="close-popup" onclick="closePopup('escolaridade-popup')">X</button>
+    <form id="form-escolaridade">
+        <div class="form-group">
+            <label for="ano">Ano</label>
+            <input type="text" id="ano" name="ano">
+        </div>
+        <div class="form-group">
+            <label for="situacao">Situação</label>
+            <select id="situacao" name="situacao">
+                <!-- Opções de situação -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="is_matriculado">Está Matriculado?</label>
+            <input type="checkbox" id="is_matriculado" name="is_matriculado">
+        </div>
+        <div class="form-group">
+            <label for="nome_escola">Nome da Escola</label>
+            <input type="text" id="nome_escola" name="nome_escola">
+        </div>
+        <div class="form-group">
+            <label for="tipo_escola">Tipo de Escola</label>
+            <select id="tipo_escola" name="tipo_escola">
+                <option value="municipal">Municipal</option>
+                <option value="estadual">Estadual</option>
+                <option value="particular">Particular</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="is_bolsista">É Bolsista?</label>
+            <input type="checkbox" id="is_bolsista" name="is_bolsista">
+        </div>
+        <button type="button" id="add-escolaridade-save-btn">Adicionar</button>
+    </form>
+</div>
+
+<script src="/static/js/sidebar_script.js"></script>
+<script src="/static/js/form_script.js"></script>
+</body>
+</html>
