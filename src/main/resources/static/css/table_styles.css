@@ -1,0 +1,74 @@
+/* CORES */
+:root {
+    --cor-principal: #ffffff;
+    --cor-clara1: #eafffa;
+    --cor-tema1: #007b5e;
+    --cor-tema-claro:#0f9979;
+    --cor-destaque1: #f47722;
+    --cor-escura1: #54585a;
+    --cor-escura2: #000000;
+}
+
+.content{
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: normal;
+    padding: 120px 20px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-button {
+    background-color: var(--cor-tema1);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background-color: var(--cor-tema-claro);
+}
+
+.top-right {
+    display: flex;
+    align-items: center;
+}
+
+.top-right label {
+    margin-right: 10px;
+}
+
+.data_table {
+    margin-top: 20px;
+}
+
+.data_table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data_table thead {
+    background-color: var(--cor-tema1);
+    color: var(--cor-escura1);
+}
+
+.data_table tr {
+    background-color: var(--cor-clara1);
+    color: var(--cor-escura2);
+}
+
+.data_table th, td {
+    padding: 10px;
+    text-align: left;
+/*     border-bottom: 1px solid #ddd; */
+}
+
+.data_table tbody tr:hover {
+    background-color: var(--cor-destaque1);
+}

@@ -272,15 +272,7 @@
     left: 220px
 }
 
-/* GENERAL PAGE CONTENT */
-
-.content{
-    position: absolute;
-    display: flex;
-    height: 100%;
-    width: calc(100% - 70px);
-    left: 70px;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.5s ease;
+.sidebar.active ~ .topbar{
+    width: calc(100% - 220px);
+    left: 220px
 }

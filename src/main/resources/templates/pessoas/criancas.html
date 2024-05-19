@@ -6,6 +6,8 @@
     <title>Lista de Crianças</title>
     <link rel="stylesheet" href="../../static/css/main_styles.css">
     <link rel="stylesheet" href="../../static/css/sidebar_styles.css">
+    <link rel="stylesheet" href="../../static/css/topbar_styles.css">
+    <link rel="stylesheet" href="../../static/css/table_styles.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,7 +37,7 @@
             <span class="tooltip">Calendário</span>
         </li>
         <li>
-            <a href="pessoas/pessoas.html">
+            <a href="/pessoas/index">
                 <i class='bx bxs-user'></i>
                 <span class="links_name">Pessoas</span>
             </a>
@@ -76,30 +78,53 @@
         </div>
     </div>
 </div>
-<div class="content">
-    <h1>Lista de Crianças</h1>
-    <label for="entries">Exibir:</label>
-    <select id="entries" onchange="loadCriancas()">
-        <option value="20">20</option>
-        <option value="50">50</option>
-        <option value="100">100</option>
-    </select>
-
-    <table>
-        <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Idade</th>
-            <th>Sexo</th>
-        </tr>
-        </thead>
-        <tbody id="criancas-list">
-        <!-- Conteúdo será preenchido dinamicamente -->
-        </tbody>
-    </table>
+<div class="topbar">
+    <div class="topbar_title">Lista de Crianças</div>
+    <div class="topbar_tabs">
+        <table>
+            <tr>
+                <td class="tab"></td>
+                <td class="tab"></td>
+                <td class="tab"></td>
+                <td class="tab"></td>
+                <td class="tab"></td>
+                <td class="tab"></td>
+                <td class="tab"></td>
+                <td class="tab"></td>
+            </tr>
+        </table>
+    </div>
 </div>
-<script src="../../static/js/sidebar_script.js"></script>
+<div class="content">
+    <div class="top">
+        <button class="add-button">Adicionar</button>
+        <div class="top-right">
+            <label for="entries">Exibir:</label>
+            <select id="entries" onchange="loadCriancas()">
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+        </div>
+    </div>
+    <div class="data_table">
+        <table>
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Sexo</th>
+            </tr>
+            </thead>
+            <tbody id="criancas-list">
+            <!-- Conteúdo será preenchido dinamicamente -->
+            </tbody>
+        </table>
+    </div>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="../../static/js/pess_criancas_script.js"></script>
+<script src="/static/js/pess_criancas_script.js"></script>
+<script src="/static/js/sidebar_script.js"></script>
+
 </body>
 </html>

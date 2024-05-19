@@ -37,11 +37,11 @@ th, td {
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: var(--cor-tema1);
 }
 
 a {
-    color: #1a73e8;
+    color: var(--cor-escura2);
     text-decoration: none;
 }
 

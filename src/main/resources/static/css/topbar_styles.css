@@ -1,0 +1,57 @@
+/* CORES */
+:root {
+    --cor-principal: #ffffff;
+    --cor-tema1: #007b5e;
+    --cor-tema-claro:#0f9979;
+    --cor-destaque1: #f47722;
+    --cor-escura1: #54585a;
+    --cor-escura2: #000000;
+}
+
+/* MAIN */
+
+
+/* -- SIDEBAR -- */
+.topbar {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    width: calc(100% - 70px);
+    height: 100px;
+    left: 70px;
+    background-color: var(--cor-destaque1);
+    padding: 10px 20px;
+    transition: all 0.5s ease;
+}
+
+.topbar_title {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.topbar_tabs {
+    width: 95%;
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 65px 0px;
+}
+
+.topbar_tabs table {
+    width: 100%;
+    min-width: 500px;
+}
+
+.topbar_tabs .tab {
+    padding: 10px 15px;
+/*     background-color: #000000; */
+    border-radius: 7px;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.topbar_tabs .tab:hover {
+    background-color: #ffffff;
+}

@@ -11,14 +11,4 @@ public class MainController {
     public String index() {
         return "index";
     }
-
-    @GetMapping(value = {"/pessoas/index"})
-    public String pessoasIndex() {
-        return "pessoas/index";
-    }
-
-    @GetMapping(value = {"/pessoas/criancas"})
-    public String pessoasCriancas() {
-        return "pessoas/criancas";
-    }
 }

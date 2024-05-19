@@ -25,11 +25,8 @@ function highlightActiveCategory() {
         // Remove the class 'active' from all links
         link.parentElement.classList.remove("active");
 
-        let currentPathEnd = currentPath.split("/").pop();
-
-
-        // Check if the current path matches the link path or if it is a nested path
-        if (currentPathEnd === linkPath || currentPath.includes(linkPath.replace('.html', ''))) {
+        // Check if the current path starts with the link path
+        if (currentPath.startsWith(linkPath.replace("index", ""))) {
             link.parentElement.classList.add("active");
         }
     });
