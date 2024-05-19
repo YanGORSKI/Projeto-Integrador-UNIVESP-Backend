@@ -1,7 +1,6 @@
 package com.univesp.sistemainternoadra.controllers;
 
 import com.univesp.sistemainternoadra.model.DAO.Crianca;
-import com.univesp.sistemainternoadra.model.DAO.PessEscolaridade;
 import com.univesp.sistemainternoadra.model.repositories.PessCriancaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
