@@ -18,10 +18,9 @@ public class PessEscolaridadeController {
 
     // Endpoint para cadastrar uma entrada na tabela PessEscolaridade
     @PostMapping
-    public ResponseEntity<String> cadastrarEscolaridade(@RequestBody PessEscolaridade escolaridade) {
-        System.out.println("Objeto PessEscolaridade recebido: " + escolaridade.toString());
-        escolaridadeRepository.save(escolaridade);
-        return new ResponseEntity<>("Entrada de escolaridade cadastrada com sucesso", HttpStatus.CREATED);
+    public ResponseEntity<PessEscolaridade> cadastrarEscolaridade(@RequestBody PessEscolaridade escolaridade) {
+        PessEscolaridade savedEscolaridade = escolaridadeRepository.save(escolaridade);
+        return new ResponseEntity<>(savedEscolaridade, HttpStatus.CREATED);
     }
 
     // Endpoint para deletar uma entrada da tabela PessEscolaridade pelo ID

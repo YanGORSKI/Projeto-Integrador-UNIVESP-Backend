@@ -116,18 +116,16 @@
                 <td colspan="2">
                     <label for="fk_endereco">Endereço</label>
                     <div class="input-with-button">
-                        <select id="fk_endereco" name="fk_endereco">
-                            <!-- Opções de endereço -->
-                        </select>
+                        <input id="fk_endereco" name="fk_endereco">
+                        </input>
+                        <input type="hidden" id="fk_endereco_id" name="fk_endereco_id">
                         <button type="button" id="add-endereco-btn">+</button>
                     </div>
                 </td>
                 <td>
                     <label for="fk_escolaridade">Escolaridade</label>
                     <div class="input-with-button">
-                        <select id="fk_escolaridade" name="fk_escolaridade">
-                            <!-- Opções de escolaridade -->
-                        </select>
+                        <input type="text" id="fk_escolaridade" name="fk_escolaridade_resumo" readonly>
                         <button type="button" id="add-escolaridade-btn">+</button>
                     </div>
                 </td>
@@ -185,32 +183,32 @@
 
 <!-- Popups para adicionar endereço e escolaridade -->
 <div id="endereco-popup" class="popup">
-    <button type="button" class="close-popup" onclick="closePopup('endereco-popup')">X</button>
+    <button type="button" class="close-popup" data-popup="endereco-popup">X</button>
     <form id="form-endereco">
         <div class="form-group">
-            <label for="endereco">Endereço</label>
-            <input type="text" id="endereco" name="endereco">
+            <label for="endereco-logradouro">Logradouro</label>
+            <input type="text" id="endereco-logradouro" name="logradouro">
         </div>
         <div class="form-group">
-            <label for="numero">Número</label>
-            <input type="text" id="numero" name="numero">
+            <label for="endereco-numero">Número</label>
+            <input type="text" id="endereco-numero" name="numero">
         </div>
         <div class="form-group">
-            <label for="bairro">Bairro</label>
-            <input type="text" id="bairro" name="bairro">
+            <label for="endereco-bairro">Bairro</label>
+            <input type="text" id="endereco-bairro" name="bairro">
         </div>
         <div class="form-group">
-            <label for="cidade">Cidade</label>
-            <input type="text" id="cidade" name="cidade">
+            <label for="endereco-cidade">Cidade</label>
+            <input type="text" id="endereco-cidade" name="cidade">
         </div>
         <div class="form-group">
-            <label for="estado">Estado</label>
-            <input type="text" id="estado" name="estado">
+            <label for="endereco-estado">Estado</label>
+            <input type="text" id="endereco-estado" name="estado">
         </div>
         <div class="form-group">
-            <label for="cep">CEP</label>
+            <label for="endereco-cep">CEP</label>
             <div class="input-with-button">
-                <input type="text" id="cep" name="cep">
+                <input type="text" id="endereco-cep" name="cep">
                 <button type="button" id="search-cep-btn">🔍</button>
             </div>
         </div>
@@ -226,10 +224,16 @@
             <input type="text" id="ano" name="ano">
         </div>
         <div class="form-group">
+            <label for="grau">Grau</label>
+            <select id="grau" name="grau"></select>
+        </div>
+        <div class="form-group">
+            <label for="periodo">Período</label>
+            <select id="periodo" name="periodo"></select>
+        </div>
+        <div class="form-group">
             <label for="situacao">Situação</label>
-            <select id="situacao" name="situacao">
-                <!-- Opções de situação -->
-            </select>
+            <select id="situacao" name="situacao"></select>
         </div>
         <div class="form-group">
             <label for="is_matriculado">Está Matriculado?</label>
