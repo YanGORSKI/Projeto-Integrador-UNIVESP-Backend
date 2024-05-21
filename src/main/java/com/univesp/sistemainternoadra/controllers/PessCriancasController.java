@@ -32,7 +32,7 @@ public class PessCriancasController {
         return ResponseEntity.ok(criancaDTOs);
     }
 
-    @PostMapping
+    @PostMapping("/salvar")
     public ResponseEntity<String> cadastrarCrianca(@RequestBody Crianca crianca) {
         criancaRepository.save(crianca);
         return new ResponseEntity<>("Criança cadastrada com sucesso", HttpStatus.CREATED);

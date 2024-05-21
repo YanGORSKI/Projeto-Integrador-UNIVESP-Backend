@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const formCrianca = document.getElementById('form-crianca');
+
     function closePopup(popupId) {
         const popup = document.getElementById(popupId);
         if (popup) {
@@ -17,28 +19,102 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Manipulador de envio de formulário
+    if (formCrianca) {
+        formCrianca.addEventListener('submit', function(event) {
+            event.preventDefault(); // Previne o envio padrão do formulário
+
+            // Coletando dados dos campos do formulário
+            const nome = document.getElementById('nome')?.value || '';
+            const nascimento = document.getElementById('nascimento')?.value || '';
+            const fkSexo = document.getElementById('fk_sexo')?.value || '';
+            const fkEnderecoId = document.getElementById('fk_endereco_id')?.value || '';
+            const fkEscolaridadeId = document.getElementById('fk_escolaridade_id')?.value || '';
+            const fkEtnia = document.getElementById('fk_etnia')?.value || '';
+            const fkResponsavel = document.getElementById('fk_responsavel')?.value || '';
+            const hasLazer = document.getElementById('has_lazer')?.checked || false;
+            const arrDescLazer = document.getElementById('arr_desc_lazer')?.value || '';
+            const fkPai = document.getElementById('fk_pai')?.value || '';
+            const fkMae = document.getElementById('fk_mae')?.value || '';
+
+            console.log("nome=" + nome + ", ",
+                        "nascimento=" + nascimento + ", ",
+                        "fkSexo=" + fkSexo + ", ",
+                        "fkEnderecoId=" + fkEnderecoId + ", ",
+                        "fkEscolaridadeId=" + fkEscolaridadeId + ", ",
+                        "fkEtnia=" + fkEtnia + ", ",
+                        "hasLazer=" + hasLazer + ", ",
+                        "arrDescLazer=" + arrDescLazer + ", ",
+                        "fkResponsavel=" + fkResponsavel + ", ",
+                        "fkPai=" + fkPai + ", ",
+                        "fkMae=" + fkMae)
+
+            // Verificar campos obrigatórios
+            if (nome === '' || nascimento === '' || fkEnderecoId === '' || fkEscolaridadeId === '' || fkEtnia === '') {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return;
+            }
+
+            // Montando o corpo da solicitação JSON
+            const data = {
+                nome: nome,
+                nascimento: nascimento,
+                fkSexo: fkSexo,
+                fkEndereco: fkEnderecoId,
+                fkEscolaridade: fkEscolaridadeId,
+                fkEtnia: fkEtnia,
+                fkResponsavel: fkResponsavel,
+                hasLazer: hasLazer,
+                arrDescLazer: arrDescLazer,
+                fkPai: fkPai,
+                fkMae: fkMae
+            };
+
+            // Enviando a solicitação via fetch
+            fetch('/pessoas/criancas/salvar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Criança cadastrada com sucesso');
+                    window.location.href = '/pessoas/index'; // Redireciona para a página de listagem ou outra página desejada
+                } else {
+                    return response.text().then(text => { throw new Error(text); });
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao cadastrar criança:', error);
+                alert('Erro ao cadastrar criança: ' + error.message);
+            });
+        });
+    }
+
     // Handle the Endereco popup
     const addEnderecoBtn = document.getElementById('add-endereco-btn');
     const enderecoPopup = document.getElementById('endereco-popup');
     const addEnderecoSaveBtn = document.getElementById('add-endereco-save-btn');
-    const enderecoField = document.getElementById('fk_endereco'); // Campo visível para o resumo
-    const enderecoIdField = document.getElementById('fk_endereco_id'); // Campo oculto para o ID do endereço
+    const enderecoField = document.getElementById('fk_endereco');
+    const enderecoIdField = document.getElementById('fk_endereco_id');
 
-    if (enderecoField && addEnderecoBtn && enderecoPopup && addEnderecoSaveBtn) {
+    if (addEnderecoBtn && enderecoPopup && addEnderecoSaveBtn && enderecoField && enderecoIdField) {
         addEnderecoBtn.addEventListener('click', function() {
             enderecoPopup.style.display = 'block';
         });
 
         addEnderecoSaveBtn.addEventListener('click', function() {
-            const logradouro = document.getElementById('endereco-logradouro').value;
-            const numero = document.getElementById('endereco-numero').value;
-            const bairro = document.getElementById('endereco-bairro').value;
-            const cidade = document.getElementById('endereco-cidade').value;
-            const estado = document.getElementById('endereco-estado').value;
-            const cep = document.getElementById('endereco-cep').value;
+            const logradouro = document.getElementById('endereco-logradouro')?.value || '';
+            const numero = document.getElementById('endereco-numero')?.value || '';
+            const bairro = document.getElementById('endereco-bairro')?.value || '';
+            const cidade = document.getElementById('endereco-cidade')?.value || '';
+            const estado = document.getElementById('endereco-estado')?.value || '';
+            const cep = document.getElementById('endereco-cep')?.value || '';
 
             const data = {
-                endereco: logradouro,  // Correspondendo ao campo "endereco" no banco de dados
+                endereco: logradouro,
                 numero: numero,
                 bairro: bairro,
                 cidade: cidade,
@@ -57,10 +133,8 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(endereco => {
                 console.log('Endereço adicionado:', endereco);
 
-                // Vincular o ID do endereço ao campo oculto
                 enderecoIdField.value = endereco.id;
 
-                // Exibir um resumo do endereço no campo visível
                 const resumo = `${endereco.endereco}, ${endereco.numero}, ${endereco.bairro}, ${endereco.cidade} - ${endereco.estado}, CEP: ${endereco.cep}`;
                 enderecoField.innerHTML = `<option value="${endereco.id}">${resumo}</option>`;
                 enderecoField.value = resumo;
@@ -73,26 +147,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // CEP Search logic
     const searchCepBtn = document.getElementById('search-cep-btn');
     if (searchCepBtn) {
         searchCepBtn.addEventListener('click', function() {
             const cepInput = document.getElementById('endereco-cep');
-            const cep = cepInput.value;
+            if (cepInput) {
+                const cep = cepInput.value;
 
-            fetch(`https://viacep.com.br/ws/${cep}/json/`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.erro) {
-                    alert('CEP não encontrado!');
-                } else {
-                    document.getElementById('endereco-logradouro').value = data.logradouro;
-                    document.getElementById('endereco-bairro').value = data.bairro;
-                    document.getElementById('endereco-cidade').value = data.localidade;
-                    document.getElementById('endereco-estado').value = data.uf;
-                }
-            })
-            .catch(error => console.error('Erro ao buscar CEP:', error));
+                fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.erro) {
+                        alert('CEP não encontrado!');
+                    } else {
+                        document.getElementById('endereco-logradouro').value = data.logradouro;
+                        document.getElementById('endereco-bairro').value = data.bairro;
+                        document.getElementById('endereco-cidade').value = data.localidade;
+                        document.getElementById('endereco-estado').value = data.uf;
+                    }
+                })
+                .catch(error => console.error('Erro ao buscar CEP:', error));
+            }
         });
     }
 
@@ -100,27 +175,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const addEscolaridadeBtn = document.getElementById('add-escolaridade-btn');
     const escolaridadePopup = document.getElementById('escolaridade-popup');
     const addEscolaridadeSaveBtn = document.getElementById('add-escolaridade-save-btn');
-    const escolaridadeField = document.getElementById('fk_escolaridade'); // Campo visível para o resumo
-    const escolaridadeIdField = document.createElement('input'); // Campo oculto para o ID da escolaridade
+    const escolaridadeField = document.getElementById('fk_escolaridade');
+    const escolaridadeIdField = document.getElementById('fk_escolaridade_id'); // Campo oculto para o ID da escolaridade
 
     if (escolaridadeField && addEscolaridadeBtn && escolaridadePopup && addEscolaridadeSaveBtn) {
-        // Campo oculto para armazenar o ID da escolaridade
-        escolaridadeIdField.type = 'hidden';
-        escolaridadeIdField.name = 'fk_escolaridade_id';
-        escolaridadeField.parentNode.appendChild(escolaridadeIdField);
-
         addEscolaridadeBtn.addEventListener('click', function() {
             escolaridadePopup.style.display = 'block';
         });
 
         addEscolaridadeSaveBtn.addEventListener('click', function() {
-            const ano = document.getElementById('ano').value;
-            const grau = document.getElementById('grau').value;
-            const periodo = document.getElementById('periodo').value;
-            const situacao = document.getElementById('situacao').value;
-            const isMatriculado = document.getElementById('is_matriculado').checked;
-            const nomeEscola = document.getElementById('nome_escola').value;
-            const tipoEscola = document.getElementById('tipo_escola').value;
+            const ano = document.getElementById('ano')?.value || '';
+            const grau = document.getElementById('grau')?.value || '';
+            const periodo = document.getElementById('periodo')?.value || '';
+            const situacao = document.getElementById('situacao')?.value || '';
+            const isMatriculado = document.getElementById('is_matriculado')?.checked || false;
+            const nomeEscola = document.getElementById('nome_escola')?.value || '';
+            const tipoEscola = document.getElementById('tipo_escola')?.value || '';
+
 
             const data = {
                 ano: parseInt(ano),
@@ -151,6 +222,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Exibir um resumo da escolaridade no campo visível
                 const resumo = `Ano: ${escolaridade.ano}, ${getGrauText(escolaridade.grau)}, ${getPeriodoText(escolaridade.periodo)}, ${getSituacaoText(escolaridade.situacao)}, ${escolaridade.isMatriculado ? 'Matriculado' : 'Não Matriculado'}, ${escolaridade.nomeEscola}, ${getTipoEscolaText(escolaridade)}`;
+                escolaridadeField.innerHTML = `<option value="${escolaridade.id}">${resumo}</option>`;
                 escolaridadeField.value = resumo;
 
                 escolaridadePopup.style.display = 'none';
