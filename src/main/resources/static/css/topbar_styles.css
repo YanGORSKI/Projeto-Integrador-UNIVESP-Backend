@@ -15,6 +15,7 @@
 .topbar {
     position: absolute;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: left;
     width: calc(100% - 70px);
@@ -31,27 +32,26 @@
 }
 
 .topbar_tabs {
-    width: 95%;
-    position: absolute;
+    width: 100%;
+    position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 65px 0px;
-}
-
-.topbar_tabs table {
-    width: 100%;
-    min-width: 500px;
+    padding: 20px 0px;
 }
 
 .topbar_tabs .tab {
-    padding: 10px 15px;
-/*     background-color: #000000; */
-    border-radius: 7px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 555;
+    padding: 5px 5px;
+    max-width: 250px;
+    min-width: 220px;
     cursor: pointer;
-    pointer-events: auto;
+    transition: all 0.3s ease;
 }
 
 .topbar_tabs .tab:hover {
-    background-color: #ffffff;
+    color: var(--cor-destaque1); !important;
+    background-color: var(--cor-principal); !important;
 }
