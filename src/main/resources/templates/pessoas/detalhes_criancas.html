@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes da Criança</title>
-    <link rel="stylesheet" href="../../static/css/main_styles.css">
-    <link rel="stylesheet" href="../../static/css/sidebar_styles.css">
-    <link rel="stylesheet" href="../../static/css/topbar_styles.css">
-    <link rel="stylesheet" href="../../static/css/form_styles.css">
+    <link rel="stylesheet" href="../../../static/css/main_styles.css">
+    <link rel="stylesheet" href="../../../static/css/sidebar_styles.css">
+    <link rel="stylesheet" href="../../../static/css/topbar_styles.css">
+    <link rel="stylesheet" href="../../../static/css/form_styles.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -78,17 +78,83 @@
 </div>
 <div class="topbar">
     <div class="topbar_title">Detalhes da Criança</div>
+    <div class="topbar_tabs">
+        <table>
+            <tr>
+                <td class="tab"></td>
+                <td class="tab"></td>
+                <td class="tab"></td>
+                <td class="tab"></td>
+                <td class="tab"></td>
+                <td class="tab"></td>
+                <td class="tab"></td>
+                <td class="tab"></td>
+            </tr>
+        </table>
+    </div>
 </div>
 <div class="content">
-    <form id="form-crianca" action="/pessoas/criancas/atualizar/{{crianca.id}}" method="POST">
-        <div class="form-group">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome" value="{{crianca.nome}}" required>
-        </div>
-        <!-- Repetir os outros campos com os valores preenchidos -->
-        <button type="submit" class="submit-button">Salvar</button>
+    <form id="form-detalhes-crianca">
+        <table>
+            <tr>
+                <td colspan="2"><label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" readonly>
+                </td>
+                <td>
+                    <label for="nascimento">Data de Nascimento</label>
+                    <input type="date" id="nascimento" name="nascimento" readonly>
+                </td>
+                <td>
+                    <label for="fk_sexo">Sexo</label>
+                    <select id="fk_sexo" name="fk_sexo" disabled>
+                        <!-- Opções de sexo -->
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label for="fk_endereco">Endereço</label>
+                    <input type="text" id="fk_endereco" name="fk_endereco" readonly>
+                </td>
+                <td>
+                    <label for="fk_escolaridade">Escolaridade</label>
+                    <input type="text" id="fk_escolaridade" name="fk_escolaridade_resumo" readonly>
+                </td>
+                <td>
+                    <label for="fk_etnia">Etnia</label>
+                    <select id="fk_etnia" name="fk_etnia" disabled>
+                        <!-- Opções de etnia -->
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label for="fk_responsavel">Responsável</label>
+                    <input type="text" id="fk_responsavel" name="fk_responsavel" readonly>
+                </td>
+                <td>
+                    <label for="has_lazer">Realiza atividades de lazer?</label>
+                    <input type="checkbox" id="has_lazer" name="has_lazer" disabled>
+                </td>
+                <td>
+                    <label for="arr_desc_lazer">Descrição do lazer</label>
+                    <textarea id="arr_desc_lazer" name="arr_desc_lazer" readonly></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label for="fk_pai">Pai</label>
+                    <input type="text" id="fk_pai" name="fk_pai" readonly>
+                </td>
+                <td colspan="2">
+                    <label for="fk_mae">Mãe</label>
+                    <input type="text" id="fk_mae" name="fk_mae" readonly>
+                </td>
+            </tr>
+        </table>
     </form>
 </div>
-<script src="/static/js/sidebar_script.js"></script>
+<script src="../../../static/js/sidebar_script.js"></script>
+<script src="../../../static/js/detalhes_script.js"></script>
 </body>
 </html>

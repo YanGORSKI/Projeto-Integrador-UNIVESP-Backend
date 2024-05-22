@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/pessoas/escolaridade")
@@ -28,6 +29,16 @@ public class PessEscolaridadeController {
     public ResponseEntity<String> deletarEscolaridade(@PathVariable Long id) {
         escolaridadeRepository.deleteById(id);
         return new ResponseEntity<>("Entrada de escolaridade deletada com sucesso", HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<PessEscolaridade> getPessEscolaridade(@PathVariable Long id) {
+        Optional<PessEscolaridade> escolaridade = escolaridadeRepository.findById(id);
+        if (escolaridade.isPresent()) {
+            return ResponseEntity.ok(escolaridade.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     // Endpoint para consultar todas as entradas da tabela PessEscolaridade

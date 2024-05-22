@@ -19,7 +19,7 @@ function loadCriancas() {
                 let idade = calcularIdade(crianca.nascimento);
                 let sexo = crianca.sexo;
                 criancasList.append(`<tr>
-                    <td><a href="detalhes_crianca.html?id=${crianca.id}">${crianca.nome}</a></td>
+                    <td><a href="/pessoas/criancas/detalhes?id=${crianca.id}">${crianca.nome}</a></td>
                     <td>${idade}</td>
                     <td>${sexo}</td>
                 </tr>`);

@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/pessoas/endereco")
@@ -28,6 +29,16 @@ public class PessEnderecoController {
     public ResponseEntity<String> deletarEndereco(@PathVariable Long id) {
         enderecoRepository.deleteById(id);
         return new ResponseEntity<>("Entrada de endereco deletada com sucesso", HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<PessEndereco> getPessEndereco(@PathVariable Long id) {
+        Optional<PessEndereco> endereco = enderecoRepository.findById(id);
+        if (endereco.isPresent()) {
+            return ResponseEntity.ok(endereco.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     // Endpoint para consultar todas as entradas da tabela PessEndereco

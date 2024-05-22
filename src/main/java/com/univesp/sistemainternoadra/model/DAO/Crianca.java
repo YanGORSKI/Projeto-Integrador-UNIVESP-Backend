@@ -2,6 +2,8 @@ package com.univesp.sistemainternoadra.model.DAO;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Crianca")
 public class Crianca {

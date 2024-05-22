@@ -59,4 +59,7 @@ public class CriancaShort {
     public Long getFkSaude() {
         return fkSaude;
     }
+
+    public void setCrianca(Crianca crianca) {
+    }
 }
