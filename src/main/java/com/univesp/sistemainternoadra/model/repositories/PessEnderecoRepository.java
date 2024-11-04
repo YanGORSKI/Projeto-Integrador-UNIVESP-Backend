@@ -1,7 +1,6 @@
 package com.univesp.sistemainternoadra.model.repositories;
 
-import com.univesp.sistemainternoadra.model.DAO.PessEndereco;
-import com.univesp.sistemainternoadra.model.DAO.PessEscolaridade;
+import com.univesp.sistemainternoadra.model.DAO.pessoas.PessEndereco;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

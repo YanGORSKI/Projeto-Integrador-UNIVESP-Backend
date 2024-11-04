@@ -25,61 +25,66 @@ cor:
 
 # CORRELAÇÕES DE SITUAÇÕES E CATEGORIAS POR INTEGER
 correlacoes:
-  situacao_imovel:
-    1: "Cedido"
-    2: "Alugado"
-    3: "Próprio"
-    4: "Financiado"
-    5: "Ocupação"
-    6: "Comodato"
-  categoria_servico_convivencia:
-    1: "Municipal"
-    2: "Estadual"
-    3: "Federal"
-    4: "Particular"
-  situacao_acolhimento:
-    1: "Acolhido"
-    2: "Desacolhido"
-    3: "Em Avaliação"
-  escolaridade:
-    grau:
-      1: "Básico"
-      2: "Médio"
-      3: "Superior"
-    periodo:
-      1: "Matutino"
-      2: "Vespertino"
-      3: "Noturno"
-      4: "Integral"
-    situacao:
-      1: "Incompleto"
-      2: "Cursando"
-      3: "Completo"
-  situacao_medida:
-    1: "Em Andamento"
-    2: "Concluído"
-    3: "Suspenso"
-  situacao_privacao:
-    1: "Encarcerado"
-    2: "Regime Semi-aberto"
-    3: "Cumprido"
-  situacao_internacao:
-    1: "Internado"
-    2: "Em Observação"
-    3: "Alta"
-  sexo:
-    1: "Masculino"
-    2: "Feminino"
-  etnia:
-    1: "Branca"
-    2: "Preta"
-    3: "Parda"
-    4: "Amarela"
-    5: "Indígena"
-  conducao:
-    1: "Transporte Público"
-    2: "Bicicleta"
-    3: "Moto"
-    4: "Carro"
-    5: "Van"
-    6: "Caminhão"
+  financeiro:
+    tipo:
+      0: "Saída"
+      1: "Entrada"
+  pessoas:
+    situacao_imovel:
+      1: "Cedido"
+      2: "Alugado"
+      3: "Próprio"
+      4: "Financiado"
+      5: "Ocupação"
+      6: "Comodato"
+    categoria_servico_convivencia:
+      1: "Municipal"
+      2: "Estadual"
+      3: "Federal"
+      4: "Particular"
+    situacao_acolhimento:
+      1: "Acolhido"
+      2: "Desacolhido"
+      3: "Em Avaliação"
+    escolaridade:
+      grau:
+        1: "Básico"
+        2: "Médio"
+        3: "Superior"
+      periodo:
+        1: "Matutino"
+        2: "Vespertino"
+        3: "Noturno"
+        4: "Integral"
+      situacao:
+        1: "Incompleto"
+        2: "Cursando"
+        3: "Completo"
+    situacao_medida:
+      1: "Em Andamento"
+      2: "Concluído"
+      3: "Suspenso"
+    situacao_privacao:
+      1: "Encarcerado"
+      2: "Regime Semi-aberto"
+      3: "Cumprido"
+    situacao_internacao:
+      1: "Internado"
+      2: "Em Observação"
+      3: "Alta"
+    sexo:
+      1: "Masculino"
+      2: "Feminino"
+    etnia:
+      1: "Branca"
+      2: "Preta"
+      3: "Parda"
+      4: "Amarela"
+      5: "Indígena"
+    conducao:
+      1: "Transporte Público"
+      2: "Bicicleta"
+      3: "Moto"
+      4: "Carro"
+      5: "Van"
+      6: "Caminhão"
