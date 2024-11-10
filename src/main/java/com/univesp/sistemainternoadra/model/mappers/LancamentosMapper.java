@@ -4,6 +4,7 @@ import com.univesp.sistemainternoadra.controllers.financeiro.responses.Lancament
 import com.univesp.sistemainternoadra.model.DAO.financeiro.LancamentosEntity;
 import com.univesp.sistemainternoadra.model.DTO.financeiro.LancamentosDTO;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import java.util.List;
 
@@ -12,7 +13,9 @@ public interface LancamentosMapper {
 
     LancamentosDTO toDto(LancamentosEntity entity);
 
-    // Adiciona o método para mapear diretamente LancamentosEntity para LancamentosResponse
+    // Mapeamento manual de cada campo de LancamentosEntity para LancamentosResponse
+    @Mapping(source = "conta.descricao", target = "conta")
+    @Mapping(source = "categoria.descricao", target = "categoria")
     LancamentosResponse toResponse(LancamentosEntity entity);
 
     // Atualiza para usar o método toResponse para cada item da lista

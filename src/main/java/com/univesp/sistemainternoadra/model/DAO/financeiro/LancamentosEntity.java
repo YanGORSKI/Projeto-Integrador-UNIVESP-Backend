@@ -1,10 +1,17 @@
 package com.univesp.sistemainternoadra.model.DAO.financeiro;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@ToString
 @Entity
+@Getter
+@Setter
 @Table(name = "financ_lancamentos")
 public class LancamentosEntity {
 
@@ -27,6 +34,4 @@ public class LancamentosEntity {
     private CategoriaEntity categoria;
 
     private String descricao;
-
-    // Getters e Setters
 }
